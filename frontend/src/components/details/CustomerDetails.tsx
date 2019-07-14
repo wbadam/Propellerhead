@@ -30,14 +30,15 @@ const CustomerDetails: React.FunctionComponent<Props> = (props) => {
     }, [props.id]);
 
     // API call to update status
-    const saveStatus = (status: Status) => {
-        api.patch("/customers/" + props.id, {status: status});
+    const saveStatus = (status: Status, actions:FormikActions<FormValues>) => {
+        api.patch("/customers/" + props.id, {status: status})
+            .finally(() => actions.setSubmitting(false));
     };
 
     if (customer) {
         return (
             <Formik initialValues={{status: customer.status}}
-                    onSubmit={(values: FormValues, actions: FormikActions<FormValues>) => saveStatus(values.status)}
+                    onSubmit={(values: FormValues, actions: FormikActions<FormValues>) => saveStatus(values.status, actions)}
                     render={(props: FormikProps<FormValues>) => (
                         <Form onSubmit={props.handleSubmit}>
                             <List>
@@ -58,11 +59,10 @@ const CustomerDetails: React.FunctionComponent<Props> = (props) => {
                                 <List.Item>
                                     <List.Icon name={"time"}/>
                                     <List.Content>
-                                        <Moment date={customer.createdDateTime}/>
-                                        {/*<Moment>{customer.createdDateTime}</Moment>*/}
+                                        <Moment date={customer.creationDateTime}/>
                                     </List.Content>
                                 </List.Item>
-                                <Button content={"Save"} type={"submit"}/>
+                                <Button content={"Save"} type={"submit"} disabled={props.isSubmitting}/>
                             </List>
                         </Form>
                     )}/>
