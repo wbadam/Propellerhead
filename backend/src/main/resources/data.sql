@@ -1,4 +1,4 @@
-insert into customer (id, name) values ('c520b432a2dc11e9a2a32a2ae2dbcce4', 'Customer one');
-insert into customer (id, name) values ('9fc16c067b6b4ec89ab9a14ff342a7c0', 'Customer two');
-insert into customer (id, name) values ('c76282cf99f844049973deb81a46c662', 'Customer three');
-insert into customer (id, name) values ('d705dfb3fc8b4ac19466c925aac64dc0', 'Customer four');
+insert into customer (id, name, status, phone_number, email, creation_date_time) values ('c520b432a2dc11e9a2a32a2ae2dbcce4', 'Quinton Hansen', 'PROSPECTIVE', '(315) 564-3709', 'lakehummo-5372@yopmail.com', '2019-07-14T00:46:46Z');
+insert into customer (id, name, status, phone_number, email, creation_date_time) values ('9fc16c067b6b4ec89ab9a14ff342a7c0', 'Angel Olsen', 'CURRENT', '(214) 434-2826', 'zozicanogi@email.sk', '2015-03-10T14:33:00Z');
+insert into customer (id, name, status, phone_number, email, creation_date_time) values ('c76282cf99f844049973deb81a46c662', 'Kristina Bird', 'CURRENT', '(269) 436-3340', 'hsws5a+8q3ve9q7fvcgk@sharklasers.com', '1995-12-20T01:10:00Z');
+insert into customer (id, name, status, phone_number, email, creation_date_time) values ('d705dfb3fc8b4ac19466c925aac64dc0', 'Carolina Foley', 'NON_ACTIVE', '(637) 783-1035', 'carolina@gmail.com', '2011-08-30T11:11:11Z');
