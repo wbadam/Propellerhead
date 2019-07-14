@@ -19,30 +19,33 @@ const Note: React.FunctionComponent<Props> = (props: Props) => {
     const [id, setId] = useState(props.id);
     const [content, setContent] = useState(props.content);
 
-    const saveNote = (content: string) => {
-        id ? updateNote(content) : addNote(content);
+    const saveNote = (content: string): Promise<any> => {
+        return id ? updateNote(content) : addNote(content);
     };
 
-    const addNote = (content: string) => {
-        api.post("/customers/" + customerId + "/notes", {content}).then(response => {
-            setId(response.data.id);
-            setContent(response.data.content);
-            setMode("view");
-        })
+    const addNote = (content: string): Promise<any> => {
+        return api.post("/customers/" + customerId + "/notes", {content})
+            .then(response => {
+                setId(response.data.id);
+                setContent(response.data.content);
+                setMode("view");
+            })
     };
 
-    const updateNote = (content: string) => {
-        api.put("/notes/" + id, {content}).then(response => {
-            setContent(response.data.content);
-            setMode("view");
-        })
+    const updateNote = (content: string): Promise<any> => {
+        return api.put("/notes/" + id, {content})
+            .then(response => {
+                setContent(response.data.content);
+                setMode("view");
+            })
     };
 
     const renderNoteView = (mode: Mode) => {
         if (mode === "view") {
             return <NoteViewContent content={content} onEditClicked={() => setMode("edit")}/>
         } else {
-            return <NoteEditContent content={content} onSave={(content: string) => new Promise(() => saveNote(content))}/>;
+            return <NoteEditContent content={content}
+                                    onSave={(content: string) => saveNote(content)}/>;
         }
     };
 
