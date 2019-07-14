@@ -15,7 +15,7 @@ interface Props {
 const Note: React.FunctionComponent<Props> = (props: Props) => {
     const {customerId} = props;
 
-    const [mode, setMode] = useState<Mode>(props.id && "view" || "edit");
+    const [mode, setMode] = useState<Mode>(props.id ? "view" : "edit");
     const [id, setId] = useState(props.id);
     const [content, setContent] = useState(props.content);
 
