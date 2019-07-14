@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
+@CrossOrigin("http://localhost:3000")
 public class CustomerController {
 
     private final CustomerService customerService;
