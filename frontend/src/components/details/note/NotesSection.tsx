@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import api from "../../../Api";
 import {Note} from "../../../model/Note";
 import NoteComponent from "./Note";
-import {Button} from "semantic-ui-react";
+import {Button, Container, Header} from "semantic-ui-react";
 
 interface Props {
     customerId: string;
@@ -28,16 +28,14 @@ const NotesSection: React.FunctionComponent<Props> = (props) => {
     // TODO placeholder
 
     return(
-        <div>
-            All the notes
-
-
+        <Container>
+            <Header>Notes</Header>
             {notes.map((note, index) => (
                 <NoteComponent key={note.id || index} id={note.id} customerId={customerId} content={note.content}/>
             ))}
 
             <Button icon={"plus"} onClick={addNote}/>
-        </div>
+        </Container>
     )
 };
 
