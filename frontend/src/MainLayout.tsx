@@ -35,9 +35,9 @@ const MainLayout: React.FunctionComponent = () => {
     };
 
     return (
-        <Container>
-            <Grid columns={'equal'}>
-                <Grid.Column width={5}>
+        <Container className={styles.layout}>
+            <Grid columns={'equal'} className={styles.mainGrid}>
+                <Grid.Column width={5} className={styles.list}>
                     <div className={styles.header}>
                         <Filter onFilter={handleFilterChange}/>
                         <Sort onSort={handleSortChange}/>
@@ -45,7 +45,7 @@ const MainLayout: React.FunctionComponent = () => {
 
                     <CustomerList customers={customers} onCustomerSelected={(id) => setSelected(id)}/>
                 </Grid.Column>
-                <Grid.Column>
+                <Grid.Column className={styles.details}>
                     <DetailsView customerId={selected}/>
                 </Grid.Column>
             </Grid>

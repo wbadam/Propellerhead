@@ -23,6 +23,7 @@ public class CustomerController {
         this.customerService = customerService;
     }
 
+    // TODO ideally return a data transfer object with only name and id
     @GetMapping("/customers")
     public List<Customer> getCustomers(@RequestParam(value = "name", required = false) String name, Sort sort) {
         List<Customer> customers;

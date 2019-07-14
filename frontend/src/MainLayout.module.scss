@@ -3,3 +3,22 @@
   flex-flow: column;
   width: 100%;
 }
+
+.layout {
+  height: 100%;
+  padding-top: 20px;
+}
+
+.mainGrid {
+  height: 100%;
+}
+
+.list {
+  height: 100%;
+  overflow-y: auto;
+}
+
+.details {
+  height: 100%;
+  overflow-y: auto;
+}

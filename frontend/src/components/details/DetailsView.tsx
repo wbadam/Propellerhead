@@ -1,7 +1,7 @@
 import React from 'react';
 import NoCustomerSelected from "./NoCustomerSelected";
 import CustomerDetails from "./CustomerDetails";
-import {Container} from "semantic-ui-react";
+import {Container, Divider} from "semantic-ui-react";
 import NotesSection from "./note/NotesSection";
 
 interface Props {
@@ -15,6 +15,7 @@ const DetailsView: React.FunctionComponent<Props> = (props) => {
         return (
             <Container>
                 <CustomerDetails id={customerId}/>
+                <Divider/>  
                 <NotesSection customerId={customerId}/>
             </Container>
         )
